@@ -1,0 +1,41 @@
+h1 {
+    font-size: 27px;
+    @include media-breakpoint-up(md) {
+        font-size: 35px;
+    }
+}
+
+h2 {
+    font-size: 19px;
+    @include media-breakpoint-up(md) {
+        font-size: 27px;
+    }
+}
+
+h3 {
+    font-size: 15px;
+    @include media-breakpoint-up(md) {
+        font-size: 19px;
+    }
+}
+
+h4 {
+    font-size: 13px;
+    @include media-breakpoint-up(md) {
+        font-size: 15px;
+    }
+}
+
+h5 {
+    font-size: 12px;
+    @include media-breakpoint-up(md) {
+        font-size: 13px;
+    }
+}
+
+p {
+    font-size: 13px;
+    @include media-breakpoint-up(md) {
+        font-size: 15px;
+    }
+}
