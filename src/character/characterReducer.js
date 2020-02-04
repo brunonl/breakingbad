@@ -1,26 +1,16 @@
 const INITIAL_STATE = {
-    searchString: '',
-    list: [
-        {
-            _id: 1,
-            description: 'a'
-        },
-        {
-            _id: 2,
-            description: 'b'
-        },
-        {
-            _id: 3,
-            description: 'c'
-        },
-
-    ]
+    searchStringCharacter: '',
+    list: []
 }
 
 export default (state = INITIAL_STATE, action) => {
     switch(action.type) {
+        case 'GET_CHARACTER':
+            return {...state, list: action.payload.data}
         case 'SEARCH_CHARACTER':
-            return {...state, searchString: action.payload}
+            return {...state, list: action.payload.data}
+        case 'CHANGE_SEARCH_CHARACTER':
+            return {...state, searchStringCharacter: action.payload}
         default : 
             return state
     }

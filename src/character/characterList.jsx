@@ -1,29 +1,40 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import Grid from '../template/grid'
 import CardCharacter from '../template/cardCharacter'
 
-const CharacterList = props => {
+import { getCharacter } from './characterActions'
 
-    const renderRows = () => {
-        const list = props.list || []
+class CharacterList extends Component {
+    constructor(props) {
+        super(props)
+    }
+    
+    componentWillMount() {
+        this.props.getCharacter()
+    }
+
+    renderRows() {
+        const list = this.props.list || []
         return list.map(character => (
-            <CardCharacter/>
+            <CardCharacter name={character.name}/>
         ))
     }
- 
-    return (
-        <div className='row'> 
-            {renderRows()}
-        </div>
-    )
 
+    render() {
+        return (
+            <div className='row'>
+                {this.renderRows()}
+            </div>
+        )
+
+    }
 }
 
-const mapStateToProps = state => ({list: state.character.list})
-// const mapDispatchToProps = dispatch => bindActionCreators({ markAsDone, markAsPending, remove }, dispatch)
+const mapStateToProps = state => ({ list: state.character.list })
+const mapDispatchToProps = dispatch => bindActionCreators({ getCharacter }, dispatch)
 
-export default connect(mapStateToProps)(CharacterList)
-    
+export default connect(mapStateToProps, mapDispatchToProps)(CharacterList)
+
