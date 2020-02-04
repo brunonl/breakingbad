@@ -6,8 +6,9 @@ import '../App.scss'
 
 import React from 'react'
 import Routes from './route'
-import Header from '../template/header'
+
 import Character from '../character/character'
+import Header from '../template/header'
 
 export default props => (
     <div>

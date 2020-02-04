@@ -14,14 +14,11 @@ class CharacterSearchForm extends Component {
     render() {
         return (
             <div className="form-inline my-2 my-lg-0">
-                {this.props.searchStringCharacter}
                 <input className="form-control mr-sm-2" type="search" placeholder="Search" onChange={this.props.changeSearchCharacter} value={this.props.searchStringCharacter} />
-                <button className="btn btn-outline-success my-2 my-sm-0" onClick={() => this.searchAndRedirect()}>Search</button>
+                <button className="btn btn-outline-success my-2 my-sm-0" disabled={!this.props.searchStringCharacter} onClick={() => this.searchAndRedirect()}>Search</button>
             </div>
         )
     }
-
-
 
 }
 
