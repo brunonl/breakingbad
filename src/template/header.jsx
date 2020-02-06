@@ -5,7 +5,7 @@ import logo from '../assets/img/logo.png';
 
 export default props => (
     <header>
-        <nav className="navbar navbar-expand-lg navbar-dark p-0 mb-5">
+        <nav className="navbar navbar-expand-lg navbar-dark navbar__dark--over p-0 mb-5">
             <a className="navbar-brand" href="/character">
                 <img className="logo" src={logo} alt=""/>
             </a>
