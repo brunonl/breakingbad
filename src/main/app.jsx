@@ -7,12 +7,13 @@ import '../App.scss'
 import React from 'react'
 import Routes from './route'
 
-import Character from '../character/character'
 import Header from '../template/header'
 
 export default props => (
-    <div>
-        <Header/>
-        <Routes />
+    <div className="main__content">
+        <div className="container"> 
+            <Header />
+            <Routes />
+        </div>
     </div>
 )

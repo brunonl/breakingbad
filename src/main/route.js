@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route, Redirect, browserHistory,  hashHistory } from 'react-router'
+import { Router, Route, Redirect, browserHistory } from 'react-router'
 
 import Character from '../character/character'
 import ResultSearchCharacter from '../character/resultSearchCharacter'

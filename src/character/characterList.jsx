@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ReactDOM from "react-dom";
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -31,19 +30,24 @@ class CharacterList extends Component {
     renderRows() {
         const list = this.state.pageOfItems || []
         return list.map(character => (
-            <Grid key={character.char_id} cols="12 6 3">
-                <CardCharacter name={character.name} />
+            <Grid key={character.char_id} cols="12 6 6 3" utilitiesClasses="px-2">
+                <CardCharacter occupation={character.occupation} birthday={character.birthday} status={character.status} img={character.img} name={character.name} />
             </Grid>
-
         ))
     }
 
     render() {
         return (
             <div className='row'>
+                <Grid cols="12">
+                    <h1 className="title">Personagens</h1>
+                </Grid>
+
                 {this.renderRows()}
 
-                <Pagination items={this.props.list} onChangePage={this.onChangePage} />
+                <Grid cols="12" utilitiesClasses="d-flex justify-content-center">
+                    <Pagination items={this.props.list} onChangePage={this.onChangePage} />
+                </Grid>
             </div>
         )
 

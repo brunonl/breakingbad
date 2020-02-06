@@ -4,9 +4,7 @@ import CharacterList from './characterList'
 export default class Character extends Component {
     render() {
         return (
-            <div>
-                <CharacterList/>
-            </div>
+            <CharacterList/>
         )
     }
 }

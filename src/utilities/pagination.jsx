@@ -10,7 +10,7 @@ const propTypes = {
 
 const defaultProps = {
     initialPage: 1,
-    pageSize: 10
+    pageSize: 8
 }
 
 class Pagination extends React.Component {
@@ -58,22 +58,22 @@ class Pagination extends React.Component {
         // default to first page
         currentPage = currentPage || 1;
 
-        // default page size is 10
-        pageSize = pageSize || 10;
+        // default page size is 8
+        pageSize = pageSize || 8;
 
         // calculate total pages
         var totalPages = Math.ceil(totalItems / pageSize);
 
         var startPage, endPage;
-        if (totalPages <= 10) {
-            // less than 10 total pages so show all
+        if (totalPages <= 8) {
+            // less than 8 total pages so show all
             startPage = 1;
             endPage = totalPages;
         } else {
-            // more than 10 total pages so calculate start and end pages
+            // more than 8 total pages so calculate start and end pages
             if (currentPage <= 6) {
                 startPage = 1;
-                endPage = 10;
+                endPage = 8;
             } else if (currentPage + 4 >= totalPages) {
                 startPage = totalPages - 9;
                 endPage = totalPages;
@@ -114,23 +114,11 @@ class Pagination extends React.Component {
 
         return (
             <ul className="pagination">
-                <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(1)}>Primeiro</a>
-                </li>
-                <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(pager.currentPage - 1)}>Anterior</a>
-                </li>
                 {pager.pages.map((page, index) =>
                     <li key={index} className={pager.currentPage === page ? 'active' : ''}>
                         <a onClick={() => this.setPage(page)}>{page}</a>
                     </li>
                 )}
-                <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(pager.currentPage + 1)}>Próxino</a>
-                </li>
-                <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(pager.totalPages)}>Último</a>
-                </li>
             </ul>
         );
     }
